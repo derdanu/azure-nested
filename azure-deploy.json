@@ -6,16 +6,21 @@
         "type": "string",
         "defaultValue": "dnsnameupdateme",
         "minLength": 1
-      }
-    
+      },
+      "AdminUserName": {
+        "type": "string",
+        "defaultValue": "azurenested",
+      },
+       "AdminPassword": {
+        "type": "string",
+        "defaultValue": "Password123!!#",
+      }   
     },
     "variables": {
       "VNETPrefix": "192.168.0.0/24",
       "VNETSubnet1Name": "azurenested",
       "VNETSubnet1Prefix": "192.168.0.0/24",
       "Name": "azurenested",
-      "AdminUserName": "azurenested",
-      "AdminPassword": "Password123!!#",
       "ImagePublisher": "MicrosoftWindowsServer",
       "ImageOffer": "WindowsServer",
       "WindowsOSVersion": "2016-Datacenter",
@@ -117,8 +122,8 @@
           },
           "osProfile": {
             "computerName": "[variables('Name')]",
-            "adminUsername": "[variables('AdminUsername')]",
-            "adminPassword": "[variables('AdminPassword')]"
+            "adminUsername": "[parameters('AdminUsername')]",
+            "adminPassword": "[parameters('AdminPassword')]"
           },
           "storageProfile": {
             "imageReference": {
